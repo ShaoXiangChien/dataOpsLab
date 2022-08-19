@@ -18,8 +18,8 @@ steps:
 - script: |
     pip install pytest pytest-azurepipelines
     pip install pytest-cov
-    pip install pyspark pandas numpy
-    pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml $(Build.Repository.LocalPath)/dataOps/Test.py || true
+    pip install pyspark pandas
+    pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml
   displayName: 'pytest'
 
 - task: PublishTestResults@2
