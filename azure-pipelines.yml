@@ -22,6 +22,12 @@ steps:
     pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml $(Build.Repository.LocalPath)/dataOps/Test.py || true
   displayName: 'pytest'
 
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFiles: '**/test-*.xml'
+    testRunTitle: 'Publish test results for Python $(python.version)'
+
 - task: deploynotebooks@0
   inputs:
     notebooksFolderPath: 'dataOps'
