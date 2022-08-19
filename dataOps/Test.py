@@ -24,7 +24,7 @@ def test_select_distinct():
     output_df_as_pd['col'] = output_df_as_pd['col'].sort_values().values
 
     expected_output_df = pd.DataFrame({
-        'col': [1, 3, 2, 4, 5],
+        'col': [1, 2, 3, 4, 5],
     })
 
     pd.testing.assert_frame_equal(left=expected_output_df, right=output_df_as_pd, check_exact=True)
