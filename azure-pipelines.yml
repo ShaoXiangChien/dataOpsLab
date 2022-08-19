@@ -19,7 +19,7 @@ steps:
     pip install pytest pytest-azurepipelines
     pip install pytest-cov
     pip install pyspark pandas
-    pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml
+    pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml $(Build.Repository.LocalPath)/dataOps/test_*.py
   displayName: 'pytest'
 
 - task: PublishTestResults@2
