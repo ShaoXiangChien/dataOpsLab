@@ -10,20 +10,22 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: UsePythonVersion@0
-  displayName: 'Use Python 3.7'
+- task: configuredatabricks@0
   inputs:
-    versionSpec: 3.7
+    url: 'https://adb-7796938190559016.16.azuredatabricks.net/'
+    token: '$(workspaceSecrets)'
 
 - script: |
-    pip install pytest requests setuptools wheel
-    pip install -U databricks-connect==6.4.*
-  displayName: 'Load Python Dependencies'
+    pip install pytest pytest-azurepipelines
+    pip install pytest-cov
+    pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml
+  displayName: 'pytest'
 
-- script: git checkout release
-  displayName: 'Get Latest Branch'
+- task: deploynotebooks@0
+  inputs:
+    notebooksFolderPath: 'devOps'
+    workspaceFolder: '/Users/a-ericchien@microsoft.com'
 
-- script: |
-    python -m pytest --junit-xml=$(Build.Repository.LocalPath)/TEST-LOCAL.xml $(Build.Repository.LocalPath)/Test.py || true
-
-  displayName: 'Run Python Unit Tests for library code'
+- task: executenotebook@0
+  inputs:
+    notebookPath: '/Users/a-ericchien@microsoft.com/Main'
