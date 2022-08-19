@@ -28,14 +28,8 @@ steps:
     testResultsFiles: '**/test-*.xml'
     testRunTitle: 'Publish test results for Python $(python.version)'
 
-- task: CopyFiles@2
+- task: deploynotebooks@0
   inputs:
-    SourceFolder: '$(Build.Repository.LocalPath)/dataOps'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    notebooksFolderPath: '/dataOps'
+    workspaceFolder: '/Users/a-ericchien@microsoft.com'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
