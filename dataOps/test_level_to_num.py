@@ -10,7 +10,6 @@ def test_level_to_num():
     expected = [27, 44, 24, 5]
 
     output_df = level_to_num(test_df)
-    output_df = test_df
     output_df_as_pd = output_df.toPandas()
     
     output = output_df_as_pd['experience_level'].value_counts().sort_index().to_list()

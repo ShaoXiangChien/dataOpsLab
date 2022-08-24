@@ -24,7 +24,3 @@ display(df)
 import os
 
 df.coalesce(1).write.mode("overwrite").format("com.databricks.spark.csv").option("header", "true").option("delimiter", "\t").option("compression", "gzip").save(f"dbfs:/tmp/cleaned_ds_salaries.csv")
-
-# COMMAND ----------
-
-
