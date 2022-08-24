@@ -4,8 +4,8 @@ import pandas as pd
 
 def test_select_highly_paid_remote_job():
     spark = SparkSession.builder.getOrCreate()
-    data_path = '/Workspace/Repos/a-ericchien@microsoft.com/dataOpsLab/dataOps/dataset/test_data.csv'
-    test_df = spark.read.csv(f'file://{ data_path }', header=True, inferSchema=True)
+    data_path = './dataset/test_data.csv'
+    test_df = spark.read.csv(data_path, header=True, inferSchema=True)
     expected = 12
 
     output_df = select_highly_paid_remote_job()
