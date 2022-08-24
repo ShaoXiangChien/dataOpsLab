@@ -30,6 +30,6 @@ steps:
 
 - task: deploynotebooks@0
   inputs:
-    notebooksFolderPath: dataOps
-    workspaceFolder: '/Users/a-ericchien@microsoft.com/tmp'
+    notebooksFolderPath: production
+    workspaceFolder: '/Shared'
 
