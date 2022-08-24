@@ -4,7 +4,7 @@ from pyspark.sql.functions import percentile_approx
 def level_to_num(df):
     """
     turn string level string to numeric level
-    @return pyspark.DataFrame
+    return pyspark.DataFrame
     """
     return df.replace(to_replace=['EN', 'MI', 'SE', 'EX'], value=['1', '2', '3', '4'])
 

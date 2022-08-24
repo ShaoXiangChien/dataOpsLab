@@ -4,11 +4,6 @@ path = f"{base_path}/dataOps/dataset/ds_salaries.csv"
 
 # COMMAND ----------
 
-data_path = '/Workspace/Repos/a-ericchien@microsoft.com/dataOpsLab/dataOps/dataset/test_data.csv'
-test_df = spark.read.csv(f'file://{ data_path }', header=True, inferSchema=True)
-
-# COMMAND ----------
-
 df = spark.read.csv("file://" + path, header=True, inferSchema=True)
 print(df)
 
