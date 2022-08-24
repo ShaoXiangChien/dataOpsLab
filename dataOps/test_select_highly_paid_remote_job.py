@@ -11,7 +11,7 @@ def test_select_highly_paid_remote_job():
     output_df = select_highly_paid_remote_job(test_df)
     output_df_as_pd = output_df.toPandas()
 
-    output = output_df_as_pd.count()
+    output = output_df_as_pd.shape[0]
     
     assert output == expected
     
