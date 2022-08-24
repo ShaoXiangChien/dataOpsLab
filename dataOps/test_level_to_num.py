@@ -5,7 +5,7 @@ import pandas as pd
 
 def test_level_to_num():
     spark = SparkSession.builder.getOrCreate()
-    data_path = './dataset/test_data.csv'
+    data_path = './dataOps/dataset/test_data.csv'
     test_df = spark.read.csv(data_path, header=True, inferSchema=True)
     expected = [27, 44, 24, 5]
 
