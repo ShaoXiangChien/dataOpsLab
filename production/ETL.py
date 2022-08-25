@@ -6,7 +6,7 @@ def level_to_num(df):
     turn string level string to numeric level
     return pyspark.DataFrame
     """
-    return df.replace(to_replace=['EN', 'MI', 'SE', 'EX'], value=['1', '2', '3', '4'])
+    return df.replace(to_replace=['EN', 'MI', 'SE', 'EX'], value=['2', '1', '3', '4'])
 
 
 
